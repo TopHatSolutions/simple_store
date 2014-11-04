@@ -10,7 +10,6 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-
   <tbody>
     <% @products.each do |product| %>
       <tr>
@@ -27,5 +26,8 @@
 </table>
 
 <br>
-
+<h3>Average Price of Products: <%= @products.all.average('price') %></h3>
+<h3>Maximum Price of Products: <%= @products.all.maximum('price') %></h3>
+<h3>Total Unique Products: <%= @products.all.count %></h3>
+<h3>Sum of Stock for Products: <%= @products.all.sum('stock_quantity') %></h3>
 <%= link_to 'New Product', new_product_path %>
